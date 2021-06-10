@@ -62,10 +62,12 @@ if class_btn:
             #image = Image.open(img_path.get("name"))
 
 
-
+            try:
                 time.sleep(1)
                 st.success('Classified')
                 st.write(predictions)
+            except NameError:
+                st.write('No image received, nor classified')
 
                 if pred_dict is not None:
                     df = pd.DataFrame.from_dict(pred_dict, orient='index').reset_index()
