@@ -1,6 +1,7 @@
 # backend/inference.py
 import numpy as np
-from pathlib import Path 
+import fastai
+from vision.fastai.all import *
 
 def predict(image):
     model_path = Path('../')
