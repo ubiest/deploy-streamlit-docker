@@ -16,7 +16,7 @@ def get_y(r): return r['labels'].split(' ')
 file_uploaded = st.file_uploader("Choose File", type=["png","jpg","jpeg","webp" ])
 class_btn = st.button("Classify")
 if file_uploaded is not None:
-    image = Image.create(file_uploaded)
+    image = PILImage.create(file_uploaded)
     st.image(image, caption='Uploaded Image', use_column_width=True)
 ###################
 ###### OLD CODE
