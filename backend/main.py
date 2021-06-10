@@ -8,7 +8,6 @@ from fastapi import UploadFile
 from PIL import Image
 import fastai
 from fastai.vision.all import *
-import config
 import inference
 
 app = FastAPI()
