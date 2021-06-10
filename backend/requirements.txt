@@ -2,7 +2,7 @@
 
 uuid
 fastapi
-#fastai
+fastai
 numpy
 pillow
 python-multipart

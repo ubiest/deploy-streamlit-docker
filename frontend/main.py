@@ -4,6 +4,7 @@ import requests
 import streamlit as st
 from PIL import Image
 import altair as alt
+import time
 
 def get_x_cv(r):
     '''## Get the x values in the Cross-Validated scenario'''
