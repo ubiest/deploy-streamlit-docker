@@ -1,5 +1,6 @@
 # backend/inference.py
 import numpy as np
+from pathlib import Path 
 
 def predict(image):
     model_path = Path('../')
