@@ -19,7 +19,8 @@ def read_root():
 ####### NEW CODE
 @app.post("/classify")
 async def get_image(file: UploadFile = File(...)):
-    image = await Image.open(file.file)
+    #image = await Image.open(file.file)
+    image = Image.open(file.file)
     output, output_dict = inference.predict(image)
     fname = f"/storage/{str(uuid.uuid4())}.jpg"
     image.save(fname) ## Log the image
