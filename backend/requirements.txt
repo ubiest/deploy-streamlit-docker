@@ -1,6 +1,9 @@
 # backend/requirements.txt
 
-fastapi
-fastai
 uuid
+fastapi
+#fastai
+numpy
 pillow
+python-multipart
+uvicorn
