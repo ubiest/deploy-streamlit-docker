@@ -3,11 +3,6 @@ import numpy as np
 import fastai
 from fastai.vision.all import *
 
-def get_x_cv(r):
-    '''## Get the x values in the Cross-Validated scenario'''
-    return r['fname']
-def get_y(r): return r['labels'].split(' ')
-
 
 def predict(image):
     model_path = Path('../')

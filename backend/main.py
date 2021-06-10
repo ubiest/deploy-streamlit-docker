@@ -26,5 +26,13 @@ async def get_image(file: UploadFile = File(...)):
     image.save(fname) ## Log the image
     return {"phrase": output, "values": output_dict}
 
+
+def get_x_cv(r):
+    '''## Get the x values in the Cross-Validated scenario'''
+    return r['fname']
+def get_y(r): return r['labels'].split(' ')
+
+
+
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8080)
