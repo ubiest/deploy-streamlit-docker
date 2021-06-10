@@ -63,26 +63,26 @@ if class_btn:
 
 
 
-            time.sleep(1)
-            st.success('Classified')
-            st.write(predictions)
+                time.sleep(1)
+                st.success('Classified')
+                st.write(predictions)
 
-            if pred_dict is not None:
-                df = pd.DataFrame.from_dict(pred_dict, orient='index').reset_index()
-                df.columns = ['Room', 'Score']
-                ### Generate a bar graph with scores
-                bars = alt.Chart(df).mark_bar().encode(
-                    y = 'Room',
-                    x = 'Score:Q'
-                )
+                if pred_dict is not None:
+                    df = pd.DataFrame.from_dict(pred_dict, orient='index').reset_index()
+                    df.columns = ['Room', 'Score']
+                    ### Generate a bar graph with scores
+                    bars = alt.Chart(df).mark_bar().encode(
+                        y = 'Room',
+                        x = 'Score:Q'
+                    )
 
-                text = bars.mark_text(
-                    align='left',
-                    baseline='middle',
-                    dx=3  # Nudges text to right so it doesn't appear on top of the bar
-                ).encode(
-                    text='Score:Q'
-                )
+                    text = bars.mark_text(
+                        align='left',
+                        baseline='middle',
+                        dx=3  # Nudges text to right so it doesn't appear on top of the bar
+                    ).encode(
+                        text='Score:Q'
+                    )
 
-                (bars + text).properties(height=900)
-                st.altair_chart((bars + text))
+                    (bars + text).properties(height=900)
+                    st.altair_chart((bars + text))
