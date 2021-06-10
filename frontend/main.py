@@ -44,9 +44,24 @@ if class_btn:
             res = requests.post(f"http://backend:8080/classify", files=files)
 
             #predictions, pred_dict = predict(image) ### Old style direct call
-            payload = res.json()
-            predictions = payload.get('phrase')
-            pred_dict = payload.get('values')
+            # payload = res.json()
+            # predictions = payload.get('phrase')
+            # pred_dict = payload.get('values')
+            ###############
+            try:
+                payload = res.json()
+                predictions = payload.get('phrase')
+                pred_dict = payload.get('values')
+                # img_path = res.json()
+                # image = Image.open(img_path.get("name"))
+                # st.image(image, width=500)
+
+            except ValueError:
+                st.write("The request code is: " + str(res.status_code))
+                st.write("The request content is: " + str(res.text))
+            #image = Image.open(img_path.get("name"))
+
+
 
             time.sleep(1)
             st.success('Classified')
