@@ -26,4 +26,4 @@ async def get_image(file: UploadFile = File(...)):
     return {"phrase": output, "values": output_dict}
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8088)
+    uvicorn.run("main:app", host="0.0.0.0", port=8080)
