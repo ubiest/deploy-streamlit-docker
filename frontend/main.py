@@ -5,6 +5,7 @@ import streamlit as st
 from PIL import Image
 import altair as alt
 import time
+from fastai.vision.all import *
 
 def get_x_cv(r):
     '''## Get the x values in the Cross-Validated scenario'''
@@ -15,7 +16,7 @@ def get_y(r): return r['labels'].split(' ')
 file_uploaded = st.file_uploader("Choose File", type=["png","jpg","jpeg","webp" ])
 class_btn = st.button("Classify")
 if file_uploaded is not None:
-    image = PILImage.create(file_uploaded)
+    image = Image.create(file_uploaded)
     st.image(image, caption='Uploaded Image', use_column_width=True)
 ###################
 ###### OLD CODE
