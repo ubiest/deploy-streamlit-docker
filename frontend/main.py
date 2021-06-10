@@ -41,7 +41,7 @@ if class_btn:
         with st.spinner('Model working....'):
             #### TODO passar imatge mitjançant request
             files = {"file": file_uploaded.getvalue()}
-            res = requests.post(f"http://backend:8088/classify", files=files)
+            res = requests.post(f"http://backend:8080/classify", files=files)
 
             #predictions, pred_dict = predict(image) ### Old style direct call
             payload = res.json()
