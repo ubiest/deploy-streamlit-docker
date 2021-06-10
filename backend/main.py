@@ -1,33 +1,15 @@
 # backend/main.py
 
-########
-######## CODE from the style transfer deploy
-
 import uuid
-
-#import cv2
 import uvicorn
 from fastapi import File
 from fastapi import FastAPI
 from fastapi import UploadFile
-#import numpy as np
 from PIL import Image
-
-################
-
-######### ADDED Jaume (8 juny)
-#import streamlit as st
-#import matplotlib.pyplot as plt
-#import numpy as np
-#import numpy.ma as ma
 import fastai
 from fastai.vision.all import *
-
-#import altair as alt
 import config
 import inference
-
-#####################
 
 app = FastAPI()
 
