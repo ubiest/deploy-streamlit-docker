@@ -11,23 +11,9 @@ from fastai.vision.all import *
 file_uploaded = st.file_uploader("Choose File", type=["png","jpg","jpeg","webp" ])
 class_btn = st.button("Classify")
 if file_uploaded is not None:
-    image = PILImage.create(file_uploaded)
+    #image = PILImage.create(file_uploaded)
+    image = Image.open(file_uploaded)
     st.image(image, caption='Uploaded Image', use_column_width=True)
-###################
-###### OLD CODE
-# displays a button
-# if st.button("Style Transfer"):
-    # if image is not None and style is not None:
-        # files = {"file": image.getvalue()}
-        # res = requests.post(f"http://backend:8080/{style}", files=files)
-        # try:
-            # img_path = res.json()
-            # image = Image.open(img_path.get("name"))
-            # st.image(image, width=500)
-        # except ValueError:
-            # st.write("The request code is: " + str(res.status_code))
-            # st.write("The request content is: " + str(res.text))
-################
 
 if class_btn:
     if file_uploaded is None:
@@ -36,7 +22,7 @@ if class_btn:
         with st.spinner('Model working....'):
             #### TODO passar imatge mitjançant request
             #files = {"file": file_uploaded.getvalue()}
-            files = {"file": file_uploaded} #.getvalue()}
+            files = {"file": image}
             res = requests.post(f"http://backend:8080/classify", files=files)
 
             #predictions, pred_dict = predict(image) ### Old style direct call
