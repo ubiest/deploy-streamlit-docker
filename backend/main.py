@@ -21,8 +21,9 @@ def read_root():
 async def get_image(file: UploadFile = File(...)):
     #image = await Image.open(file.file)
     image = Image.open(file.file)
+    image_np = np.array(image)
     #output, output_dict = inference.predict(image)
-    output, output_dict = inference.predict(file.file)
+    output, output_dict = inference.predict(PILImage.create(file.file))
     fname = f"/storage/{str(uuid.uuid4())}.jpg"
     image.save(fname) ## Log the image
     return {"phrase": output, "values": output_dict}
